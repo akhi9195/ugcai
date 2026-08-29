@@ -1,4 +1,4 @@
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 import { dummyGenerations } from "../assets/assets";
 import type { Project } from "../types";
 import { useEffect, useState } from "react";
@@ -29,20 +29,20 @@ function Community() {
           <p className="text-gray-400">
             See what others are creating with UGC.ai
           </p>
-          {/* Projects list */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
-            {projects.map((project) => (
-              <div>
-                <ProjectCard
-                  key={project.id}
-                  gen={project}
-                  setGenerations={setProjects}
-                  forCommunity={true}
-                />
-              </div>
-            ))}
-          </div>
         </header>
+        {/* Projects list */}
+        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
+          {projects.map((project) => (
+            <div>
+              <ProjectCard
+                key={project.id}
+                gen={project}
+                setGenerations={setProjects}
+                forCommunity={true}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
