@@ -6,7 +6,7 @@ import { clerkMiddleware } from "@clerk/express";
 import clerkWebhooks from "./controllers/clerk";
 import * as Sentry from "@sentry/node";
 import userRouter from "./routes/userRoutes";
-import projectRouter from "./routes/projectController";
+import projectRouter from "./routes/projectRoutes";
 
 const app = express();
 
