@@ -1,10 +1,22 @@
-import { MenuIcon, XIcon } from "lucide-react";
-import { PrimaryButton } from "./Buttons";
+import {
+  DollarSignIcon,
+  FolderEditIcon,
+  GalleryHorizontalEnd,
+  MenuIcon,
+  SparkleIcon,
+  XIcon,
+} from "lucide-react";
+import { GhostButton, PrimaryButton } from "./Buttons";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
+import { useClerk, useUser, UserButton } from "@clerk/react";
 export default function Navbar() {
+  const navigate = useNavigate();
+  const { user } = useUser();
+  const { openSignIn, openSignUp } = useClerk();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
@@ -39,18 +51,58 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
-          <button className="text-sm font-medium text-gray-300 hover:text-white transition max-sm:hidden">
-            Sign in
-          </button>
-          <PrimaryButton className="max-sm:text-xs hidden sm:inline-block">
-            Get Started
-          </PrimaryButton>
-        </div>
+        {!user ? (
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={() => openSignIn()}
+              className="text-sm font-medium text-gray-300 hover:text-white transition max-sm:hidden"
+            >
+              Sign in
+            </button>
+            <PrimaryButton
+              onClick={() => openSignUp()}
+              className="max-sm:text-xs hidden sm:inline-block"
+            >
+              Get Started
+            </PrimaryButton>
+          </div>
+        ) : (
+          <div className="flex gap-2">
+            <GhostButton onClick={() => navigate("/plans")} className="">
+              Credits:
+            </GhostButton>
+            <UserButton>
+              <UserButton.MenuItems>
+                <UserButton.Action
+                  label="Generate"
+                  labelIcon={<SparkleIcon size={14} />}
+                  onClick={() => navigate("/generate")}
+                />
+                <UserButton.Action
+                  label="My Generations"
+                  labelIcon={<FolderEditIcon size={14} />}
+                  onClick={() => navigate("/my-generations")}
+                />
+                <UserButton.Action
+                  label="Community"
+                  labelIcon={<GalleryHorizontalEnd size={14} />}
+                  onClick={() => navigate("/community")}
+                />
+                <UserButton.Action
+                  label="Plans"
+                  labelIcon={<DollarSignIcon size={14} />}
+                  onClick={() => navigate("/plans")}
+                />
+              </UserButton.MenuItems>
+            </UserButton>
+          </div>
+        )}
 
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-          <MenuIcon className="size-6" />
-        </button>
+        {!user && (
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+            <MenuIcon className="size-6" />
+          </button>
+        )}
       </div>
       <div
         className={`flex flex-col items-center justify-center gap-6 text-lg font-medium fixed inset-0 bg-black/40 backdrop-blur-md z-50 transition-all duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
@@ -62,12 +114,20 @@ export default function Navbar() {
         ))}
 
         <button
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            setIsOpen(false);
+            openSignIn();
+          }}
           className="font-medium text-gray-300 hover:text-white transition"
         >
           Sign in
         </button>
-        <PrimaryButton onClick={() => setIsOpen(false)}>
+        <PrimaryButton
+          onClick={() => {
+            setIsOpen(false);
+            openSignUp();
+          }}
+        >
           Get Started
         </PrimaryButton>
 
