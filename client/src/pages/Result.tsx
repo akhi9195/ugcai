@@ -5,22 +5,38 @@ import {
   SparkleIcon,
   VideoIcon,
 } from "lucide-react";
-import { dummyGenerations } from "../assets/assets";
+
 import type { Project } from "../types";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { GhostButton, PrimaryButton } from "../components/Buttons";
-import { div } from "framer-motion/client";
+import { useAuth, useUser } from "@clerk/react";
+import toast from "react-hot-toast";
+
 function Result() {
+  const { projectId } = useParams();
+  const { getToken } = useAuth();
+  const { user, isLoaded } = useUser();
+  const navigate = useNavigate();
+
   const [project, setProjectData] = useState<Project>({} as Project);
   const [loading, setLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(false);
 
   const fetchProjectData = async () => {
-    setTimeout(() => {
-      setProjectData(dummyGenerations[0]);
+    try {
+      const token = await getToken();
+      const { data } = await api.get(`/api/user/projects/${projectId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      setProjectData(data.project);
+      setIsGenerating(data.project.isGenerating);
       setLoading(false);
-    }, 3000);
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message || error.message);
+      console.log(error);
+    }
   };
 
   useEffect(() => {
