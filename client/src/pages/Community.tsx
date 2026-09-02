@@ -1,17 +1,23 @@
 // import { div } from "framer-motion/client";
-import { dummyGenerations } from "../assets/assets";
+
 import type { Project } from "../types";
 import { useEffect, useState } from "react";
 import { Loader2Icon } from "lucide-react";
 import ProjectCard from "../components/ProjectCard";
+import api from "../configs/axios";
+import toast from "react-hot-toast";
 function Community() {
   const [projects, setProjects] = useState<Project>([]);
   const [loading, setLoading] = useState(true);
   const fetchProjects = async () => {
-    setTimeout(() => {
-      setProjects(dummyGenerations);
+    try {
+      const { data } = await api.get("/api/project/published");
+      setProjects(data.projects);
       setLoading(false);
-    }, 3000);
+    } catch (error) {
+      toast.error(error?.response?.data?.message || error.message);
+      console.log(error);
+    }
   };
 
   useEffect(() => {
