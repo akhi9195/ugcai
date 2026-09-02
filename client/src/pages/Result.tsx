@@ -12,6 +12,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { GhostButton, PrimaryButton } from "../components/Buttons";
 import { useAuth, useUser } from "@clerk/react";
 import toast from "react-hot-toast";
+import api from "../configs/axios";
 
 function Result() {
   const { projectId } = useParams();
@@ -40,11 +41,43 @@ function Result() {
   };
 
   useEffect(() => {
-    fetchProjectData();
-  }, []);
+    if (user && !project.id) {
+      fetchProjectData();
+    } else if (isLoaded && !user) {
+      navigate("/");
+    }
+  }, [user]);
 
+  //Fecth project evry 10 seconds
+  useEffect(() => {
+    if (user && isGenerating) {
+      const interval = setInterval(() => {
+        fetchProjectData();
+      }, 10000);
+      return () => clearInterval(interval);
+    }
+  }, [user, isGenerating]);
   const handleGenerateVideo = async () => {
     setIsGenerating(true);
+    try {
+      const token = await getToken();
+      const { data } = await api.post(
+        "/api/project/video",
+        { projectId },
+        { headers: { Authorization: `Bearer ${token}` } },
+      );
+      setProjectData((prev) => ({
+        ...prev,
+        generatedVideo: data.videoUrl,
+        isGenerating: false,
+      }));
+
+      toast.success(data.message);
+      setIsGenerating(false);
+    } catch (error: any) {
+      toast.error(error?.response?.data?.message || error.message);
+      console.log(error);
+    }
   };
 
   return loading ? (
