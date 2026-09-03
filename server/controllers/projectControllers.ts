@@ -328,7 +328,16 @@ export const createVideo = async (req: Request, res: Response) => {
 
     console.log("[6] Credits deducted successfully");
 
-    const prompt = `make the person showcase the product which is ${project.productName} ${project.productDescription} && and Product Description: ${project.productDescription}`;
+    //const prompt = `make the person showcase the product which is ${project.productName} ${project.productDescription} && and Product Description: ${project.productDescription}`;
+    const prompt = `
+Create a natural UGC product showcase for ${project.productName}.
+Product: ${project.productDescription}
+
+Make the person naturally showcase and use the product.
+Speak ONLY in English with a natural, clear voice.
+English dialogue only. No other languages.
+Ensure lip-sync matches the speech.
+`;
 
     console.log("[7] Video prompt:", prompt);
     //const model = "veo-3.1-generate-preview";
