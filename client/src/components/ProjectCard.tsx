@@ -52,7 +52,7 @@ const ProjectCard = ({
   const togglePublish = async (projectId: string) => {
     try {
       const token = await getToken();
-      const { data } = await api.get(`/api/project/${projectId}`, {
+      const { data } = await api.get(`/api/user/publish/${projectId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

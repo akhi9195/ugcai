@@ -28,7 +28,7 @@ export const getAllProjects = async (req: Request, res: Response) => {
     //   return res.status(401).json({ message: "Unathorized" });
     // }
     const projects = await prisma.project.findMany({
-      where: { id: userId },
+      where: { userId },
       orderBy: { createdAt: "desc" },
     });
 
@@ -69,15 +69,27 @@ export const toggleProjectPublic = async (req: Request, res: Response) => {
     // if (!userId) {
     //   return res.status(401).json({ message: "Unathorized" });
     // }
+    console.log("========== TOGGLE PUBLISH ==========");
+    console.log("userId:", userId);
+    console.log("projectId:", projectId);
+
     const project = await prisma.project.findUnique({
       where: { id: projectId, userId },
     });
+
+    console.log("project found:", !!project);
+
+    if (project) {
+      console.log("project.id:", project.id);
+      console.log("project.userId:", project.userId);
+    }
 
     if (!project) {
       return res.status(404).json({ message: "Project not found" });
     }
 
     if (!project?.generatedImage && !project.generatedVideo) {
+      console.log("No generated image or video");
       return res.status(404).json({ message: "image or video not generated" });
     }
 
