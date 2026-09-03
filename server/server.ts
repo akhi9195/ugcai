@@ -9,7 +9,13 @@ import userRouter from "./routes/userRoutes";
 import projectRouter from "./routes/projectRoutes";
 
 const app = express();
+console.log(">>> INCOMING REQUEST 1:");
 
+app.use((req, res, next) => {
+  res.setHeader("X-Debug-Server", "AK-UGC-SERVER-001");
+  console.error(">>> REQUEST:", req.method, req.originalUrl);
+  next();
+});
 // Middleware
 app.use(cors());
 
@@ -25,7 +31,7 @@ app.use(clerkMiddleware());
 const PORT = process.env.PORT || 5000;
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Server is Live!");
+  res.send("Server is Live! DEBUG-001");
 });
 
 app.get("/debug-sentry", function mainHandler(req, res) {

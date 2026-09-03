@@ -18,7 +18,7 @@ export default function Pricing() {
             appearance={{
               variables: {
                 colorBackground: "none",
-                colorPrimary: "#92EEFF",
+                colorPrimary: "#3949AB",
               },
               elements: {
                 pricingTableCardBody: "bg-white/6",
