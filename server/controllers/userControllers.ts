@@ -43,7 +43,7 @@ export const getAllProjects = async (req: Request, res: Response) => {
 export const getProjectById = async (req: Request, res: Response) => {
   try {
     const { userId } = req.auth();
-    const { projectId } = req.params;
+    const { projectId } = req.params as { projectId: string };
     // if (!userId) {
     //   return res.status(401).json({ message: "Unathorized" });
     // }
@@ -65,7 +65,7 @@ export const getProjectById = async (req: Request, res: Response) => {
 export const toggleProjectPublic = async (req: Request, res: Response) => {
   try {
     const { userId } = req.auth();
-    const { projectId } = req.params;
+    const { projectId } = req.params as { projectId: string };
     // if (!userId) {
     //   return res.status(401).json({ message: "Unathorized" });
     // }

@@ -46,7 +46,7 @@ function Result() {
     } else if (isLoaded && !user) {
       navigate("/");
     }
-  }, [user]);
+  }, [user, isLoaded, project.id]);
 
   //Fecth project evry 10 seconds
   useEffect(() => {
@@ -57,6 +57,7 @@ function Result() {
       return () => clearInterval(interval);
     }
   }, [user, isGenerating]);
+
   const handleGenerateVideo = async () => {
     setIsGenerating(true);
     try {
@@ -66,14 +67,32 @@ function Result() {
         { projectId },
         { headers: { Authorization: `Bearer ${token}` } },
       );
-      setProjectData((prev) => ({
-        ...prev,
-        generatedVideo: data.videoUrl,
-        isGenerating: false,
-      }));
+
+      /*
+       *
+       *
+       * The API no longer returns videoUrl.
+       *
+       * It only starts the Inngest background job.
+       *
+       * Therefore DON'T do:
+       *
+       * setProjectData(...)
+       * setIsGenerating(false)
+       *
+       * here.
+       *
+       * The polling useEffect will fetch the updated
+       * project after Inngest finishes.
+       */
+      // setProjectData((prev) => ({
+      //   ...prev,
+      //   generatedVideo: data.videoUrl,
+      //   isGenerating: false,
+      // }));
 
       toast.success(data.message);
-      setIsGenerating(false);
+      // setIsGenerating(false);
     } catch (error: any) {
       toast.error(error?.response?.data?.message || error.message);
       console.log(error);
