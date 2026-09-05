@@ -16,6 +16,7 @@ function MyGenerations() {
   const [loading, setLoading] = useState(false);
 
   const fetchMyGenerations = async () => {
+    setLoading(true);
     try {
       const token = await getToken();
       const { data } = await api.get("/api/user/projects", {
@@ -26,6 +27,7 @@ function MyGenerations() {
     } catch (error: any) {
       toast.error(error?.response?.data?.message || error.message);
       console.log(error);
+      setLoading(false);
     }
   };
 
@@ -54,12 +56,8 @@ function MyGenerations() {
         {/* generations list */}
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
           {generations.map((gen) => (
-            <div>
-              <ProjectCard
-                key={gen.id}
-                gen={gen}
-                setGenerations={setGenerations}
-              />
+            <div key={gen.id}>
+              <ProjectCard gen={gen} setGenerations={setGenerations} />
             </div>
           ))}
         </div>

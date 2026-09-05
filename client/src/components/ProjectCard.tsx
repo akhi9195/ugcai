@@ -28,6 +28,7 @@ const ProjectCard = ({
   const { getToken } = useAuth();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const handleDelete = async (id: string) => {
     const confirm = window.confirm("Are you sure want to delete this project?");
@@ -72,6 +73,16 @@ const ProjectCard = ({
     }
   };
 
+  const handleTapOnVideo = function (e) {
+    e.stopPropagation();
+    if (isPlaying) {
+      e.currentTarget.pause();
+      setIsPlaying(false);
+    } else {
+      e.currentTarget.play();
+      setIsPlaying(true);
+    }
+  };
   return (
     <div key={gen.id} className="mb-4 break-inside-avoid">
       <div className="relative bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-white/20 transition group">
@@ -93,12 +104,19 @@ const ProjectCard = ({
               muted
               loop
               playsInline
-              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
+              autoPlay
+              className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500 max-md:opacity-100"
               onMouseEnter={(e) => e.currentTarget.play()}
               onMouseLeave={(e) => e.currentTarget.pause()}
+              onClick={(e) => handleTapOnVideo(e)}
             />
           )}
 
+          {gen.generatedVideo && !isPlaying && (
+            <div className="md:hidden absolute inset-0 flex items-center justify-center pointer-events-none">
+              <PlaySquareIcon className="size-10 text-white/90 drop-shadow-lg" />
+            </div>
+          )}
           {!gen?.generatedImage && !gen?.generatedVideo && (
             <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-black/20">
               <Loader2Icon className="size-7 animate-spin" />

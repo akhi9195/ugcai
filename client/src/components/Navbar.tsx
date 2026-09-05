@@ -29,6 +29,7 @@ export default function Navbar() {
     { name: "Create", href: "/generate" },
     { name: "Community", href: "/community" },
     { name: "Plans", href: "/plans" },
+    // ...(user ? [{ name: "My Generations", href: "/my-generations" }] : []),
   ];
 
   const getUserCredits = async () => {
