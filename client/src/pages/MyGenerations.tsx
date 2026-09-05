@@ -12,7 +12,7 @@ function MyGenerations() {
   const { user, isLoaded } = useUser();
   const { getToken } = useAuth();
   const navigate = useNavigate();
-  const [generations, setGenerations] = useState<Project>([]);
+  const [generations, setGenerations] = useState<Project[]>([]);
   const [loading, setLoading] = useState(false);
 
   const fetchMyGenerations = async () => {

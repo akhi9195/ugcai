@@ -19,7 +19,7 @@ import toast from "react-hot-toast";
 const ProjectCard = ({
   gen,
   setGenerations,
-  forComunity = false,
+  forCommunity = false,
 }: {
   gen: Project;
   setGenerations: React.Dispatch<React.SetStateAction<Project[]>>;
@@ -137,7 +137,7 @@ const ProjectCard = ({
         </div>
 
         {/* action menu for my generations only*/}
-        {!forComunity && (
+        {!forCommunity && (
           <div
             onMouseDownCapture={() => {
               setMenuOpen(true);
@@ -244,7 +244,7 @@ const ProjectCard = ({
 
           {/* buttons */}
 
-          {!forComunity && (
+          {!forCommunity && (
             <div className="mt-4 grid grid-cols-2 gap-3">
               <GhostButton
                 className="text-xs justify-center"

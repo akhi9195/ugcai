@@ -7,14 +7,14 @@ import ProjectCard from "../components/ProjectCard";
 import api from "../configs/axios";
 import toast from "react-hot-toast";
 function Community() {
-  const [projects, setProjects] = useState<Project>([]);
+  const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const fetchProjects = async () => {
     try {
       const { data } = await api.get("/api/project/published");
       setProjects(data.projects);
       setLoading(false);
-    } catch (error) {
+    } catch (error: any) {
       toast.error(error?.response?.data?.message || error.message);
       console.log(error);
     }
