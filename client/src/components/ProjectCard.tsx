@@ -73,7 +73,7 @@ const ProjectCard = ({
     }
   };
 
-  const handleTapOnVideo = function (e) {
+  const handleTapOnVideo = function (e: React.MouseEvent<HTMLVideoElement>) {
     e.stopPropagation();
     if (isPlaying) {
       e.currentTarget.pause();
