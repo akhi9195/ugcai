@@ -16,7 +16,7 @@ export default function Title({ title, heading, description }: TitleProps) {
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
-                    className="text-sm font-medium text-violet-400 uppercase tracking-wide mb-3"
+                    className="text-sm font-medium text-accent-400 uppercase tracking-wide mb-3"
                 >
                     {title}
                 </motion.p>

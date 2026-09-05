@@ -126,12 +126,12 @@ const ProjectCard = ({
           {/* status badges */}
           <div className="absolute left-3 top-3 flex gap-2 items-center">
             {gen.isGenerating && (
-              <span className="text-xs px-2 py-1 bg-yellow-600/30 rounded-full">
+              <span className="text-xs px-2 py-1 bg-warning/30 rounded-full">
                 Generating
               </span>
             )}
             {gen.isPublished && (
-              <span className="text-xs px-2 py-1 bg-green-600/30 rounded-full">
+              <span className="text-xs px-2 py-1 bg-success/30 rounded-full">
                 Published
               </span>
             )}
@@ -210,7 +210,7 @@ const ProjectCard = ({
                 )}
                 <button
                   onClick={() => handleDelete(gen.id)}
-                  className="w-full flex gap-2 items-center px-4 py-2 hover:bg-red-950/10 text-red-400 cursor-pointer"
+                  className="w-full flex gap-2 items-center px-4 py-2 hover:bg-red-950/10 text-danger cursor-pointer"
                 >
                   <Trash2Icon size={14} /> Delete
                 </button>

@@ -70,7 +70,7 @@ export default function Hero() {
                 }}
               >
                 Create viral Ad videos <br />
-                <span className="bg-clip-text text-transparent bg-linear-to-r from-indigo-300 to-indigo-400">
+                <span className="bg-clip-text text-transparent bg-linear-to-r from-primary-300 to-primary-400">
                   in seconds
                 </span>
               </motion.h1>
@@ -88,7 +88,7 @@ export default function Hero() {
                   delay: 0.2,
                 }}
               >
-                Upload product images and a model photo — our AI instantly
+                Upload product images and a model photo â€” our AI instantly
                 produces professional lifestyle imagery and short-form videos
                 optimized for commercials & Reels.
               </motion.p>
@@ -179,7 +179,7 @@ export default function Hero() {
                   />
 
                   <div className="absolute left-4 top-4 px-3 py-1 rounded-full bg-black/15 backdrop-blur-sm text-xs">
-                    Socail-ready • 9:16 • 16:9
+                    Socail-ready â€¢ 9:16 â€¢ 16:9
                   </div>
 
                   <div className="absolute right-4 bottom-4">
@@ -228,9 +228,9 @@ export default function Hero() {
                   }}
                 >
                   <div className="relative flex h-3.5 w-3.5 items-center justify-center">
-                    <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping duration-300" />
+                    <span className="absolute inline-flex h-full w-full rounded-full bg-success opacity-75 animate-ping duration-300" />
 
-                    <span className="relative inline-flex size-2 rounded-full bg-green-600" />
+                    <span className="relative inline-flex size-2 rounded-full bg-success" />
                   </div>
                   +20 more
                 </motion.div>

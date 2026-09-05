@@ -104,7 +104,7 @@ function Generator() {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Name your project"
                 required
-                className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-violet-200/10 focus:border-violet-500/50 outline-none transistion-all"
+                className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-violet-200/10 focus:border-accent-500/50 outline-none transistion-all"
               />
             </div>
 
@@ -119,7 +119,7 @@ function Generator() {
                 onChange={(e) => setProductName(e.target.value)}
                 placeholder="Enter the name of the product"
                 required
-                className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-violet-200/10 focus:border-violet-500/50 outline-none transistion-all"
+                className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-violet-200/10 focus:border-accent-500/50 outline-none transistion-all"
               />
             </div>
             <div className="mb-4 text-gray-300">
@@ -128,7 +128,7 @@ function Generator() {
                 className="block text-sm mb-4"
               >
                 Product Description
-                <span className="text-xs text-violet-400"> (optional)</span>
+                <span className="text-xs text-accent-400"> (optional)</span>
               </label>
               <textarea
                 name="productDescription"
@@ -137,7 +137,7 @@ function Generator() {
                 value={productDescription}
                 onChange={(e) => setProductDescription(e.target.value)}
                 placeholder="Enter the description of the product"
-                className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-violet-200/10 focus:border-violet-500/50 outline-none resize-none transition-all"
+                className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-violet-200/10 focus:border-accent-500/50 outline-none resize-none transition-all"
               />
             </div>
             <div className="mb-4 text-gray-300">
@@ -147,12 +147,12 @@ function Generator() {
               <div className="flex gap-3">
                 <RectangleVerticalIcon
                   onClick={() => setAspectRatio("9:16")}
-                  className={`p-2.5 size-13 bg-white/6 rounded transition-all ring-2 ring-transparent cursor-pointer ${aspectRatio === "9:16" ? "ring-violet-500/50 bg-white/10" : "}"}" : ""}`}
+                  className={`p-2.5 size-13 bg-white/6 rounded transition-all ring-2 ring-transparent cursor-pointer ${aspectRatio === "9:16" ? "ring-accent-500/50 bg-white/10" : "}"}" : ""}`}
                 />
 
                 <RectangleHorizontalIcon
                   onClick={() => setAspectRatio("16:9")}
-                  className={`p-2.5 size-13 bg-white/6 rounded transition-all ring-2 ring-transparent cursor-pointer ${aspectRatio === "16:9" ? "ring-violet-500/50 bg-white/10" : "}"}" : ""}`}
+                  className={`p-2.5 size-13 bg-white/6 rounded transition-all ring-2 ring-transparent cursor-pointer ${aspectRatio === "16:9" ? "ring-accent-500/50 bg-white/10" : "}"}" : ""}`}
                 />
               </div>
             </div>
@@ -160,7 +160,7 @@ function Generator() {
             <div className="mb-4 text-gray-300">
               <label htmlFor="userPrompt" className="block text-sm mb-4">
                 User Prompt
-                <span className="text-xs text-violet-400"> (optional)</span>
+                <span className="text-xs text-accent-400"> (optional)</span>
               </label>
               <textarea
                 name="productDescription"
@@ -169,7 +169,7 @@ function Generator() {
                 value={userPrompt}
                 onChange={(e) => setUserPrompt(e.target.value)}
                 placeholder="Describe how you want narration to be."
-                className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-violet-200/10 focus:border-violet-500/50 outline-none resize-none transition-all"
+                className="w-full bg-white/3 rounded-lg border-2 p-4 text-sm border-violet-200/10 focus:border-accent-500/50 outline-none resize-none transition-all"
               />
             </div>
           </div>

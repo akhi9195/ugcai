@@ -6,7 +6,7 @@ const UploadZone = ({ label, file, onClear, onChange }: UploadZoneProps) => {
     <div className="relative group">
       <div
         className={`relative h-74 rounded-2xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-6 
-          ${file ? "border-violet-600/50 bg-violet-500/5" : "border-white/10 hover:border-violet-500/30 hover:bg-white/5"} `}
+          ${file ? "border-accent-600/50 bg-accent-500/5" : "border-white/10 hover:border-accent-500/30 hover:bg-white/5"} `}
       >
         {file ? (
           <>
@@ -22,7 +22,7 @@ const UploadZone = ({ label, file, onClear, onChange }: UploadZoneProps) => {
               <button
                 type="button"
                 onClick={onClear}
-                className="p-2 rounded-full bg-white/10 hover:bg-red-500/20 text-white hover:text-red-400 transition-colors"
+                className="p-2 rounded-full bg-white/10 hover:bg-red-500/20 text-white hover:text-danger transition-colors"
               >
                 <XIcon className="w-6 h-6" />
               </button>
@@ -35,7 +35,7 @@ const UploadZone = ({ label, file, onClear, onChange }: UploadZoneProps) => {
         ) : (
           <>
             <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <UploadIcon className="w-8 h-8 text-gray-400 group-hover:text-violet-400 transition-colors" />
+              <UploadIcon className="w-8 h-8 text-gray-400 group-hover:text-accent-400 transition-colors" />
             </div>
             <h3 className="text-lg font-semibold mb-2">{label}</h3>
             <p className="text-sm text-gray-400 text-center max-w-[200px]">

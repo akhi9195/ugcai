@@ -199,8 +199,8 @@ function Result() {
                 </PrimaryButton>
               ) : (
                 <div
-                  className="p-3 bg-green-500/10 border border-green-500/20 
-                rounded-xl text-green-400 text-center text-sm font-medium"
+                  className="p-3 bg-success/10 border border-success/20 
+                rounded-xl text-success text-center text-sm font-medium"
                 >
                   Video Generated Successfully!
                 </div>

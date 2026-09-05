@@ -6,9 +6,9 @@ function Plans() {
       <Pricing />
       <p className="text-center text-gray-400 mx-w-md text-sm my-14 mx-auto px-12">
         Create stunning images for just{" "}
-        <span className="text-indigo-400 font-medium">5 credits</span> and
+        <span className="text-primary-400 font-medium">5 credits</span> and
         generate immersive videos for{" "}
-        <span className="text-indigo-400 font-medium">10 credits</span>.
+        <span className="text-primary-400 font-medium">10 credits</span>.
       </p>
     </div>
   );

@@ -6,7 +6,7 @@ export default function CTA() {
   return (
     <section className="py-20 2xl:pb-32 px-4">
       <div className="container mx-auto max-w-3xl">
-        <div className="rounded-3xl bg-linear-to-b from-violet-900/20 to-violet-900/5 border border-violet-500/20 p-12 md:p-16 text-center relative overflow-hidden">
+        <div className="rounded-3xl bg-linear-to-b from-accent-900/20 to-accent-900/5 border border-accent-500/20 p-12 md:p-16 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-20" />
           <div className="relative z-10">
             <motion.h2
