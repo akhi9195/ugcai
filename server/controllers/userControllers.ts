@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import * as Sentry from "@sentry/node";
 import { prisma } from "../configs/prisma";
+import { AuthedRequest } from "../types/express";
 //Get User Credits
 export const getUserCredits = async (req: Request, res: Response) => {
   try {
-    const { userId } = req.auth();
+    const { userId } = (req as AuthedRequest).auth();
     if (!userId) {
       return res.status(401).json({ message: "Unauthorized" });
     }
@@ -23,7 +24,7 @@ export const getUserCredits = async (req: Request, res: Response) => {
 //Get all user projects
 export const getAllProjects = async (req: Request, res: Response) => {
   try {
-    const { userId } = req.auth();
+    const { userId } = (req as AuthedRequest).auth();
     // if (!userId) {
     //   return res.status(401).json({ message: "Unathorized" });
     // }
@@ -42,7 +43,7 @@ export const getAllProjects = async (req: Request, res: Response) => {
 //Get project by id
 export const getProjectById = async (req: Request, res: Response) => {
   try {
-    const { userId } = req.auth();
+    const { userId } = (req as AuthedRequest).auth();
     const { projectId } = req.params as { projectId: string };
     // if (!userId) {
     //   return res.status(401).json({ message: "Unathorized" });
@@ -64,7 +65,7 @@ export const getProjectById = async (req: Request, res: Response) => {
 // Publish / Unpublish project
 export const toggleProjectPublic = async (req: Request, res: Response) => {
   try {
-    const { userId } = req.auth();
+    const { userId } = (req as AuthedRequest).auth();
     const { projectId } = req.params as { projectId: string };
     // if (!userId) {
     //   return res.status(401).json({ message: "Unathorized" });

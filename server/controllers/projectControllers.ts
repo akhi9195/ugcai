@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import * as Sentry from "@sentry/node";
 import { prisma } from "../configs/prisma";
 import { v2 as cloudanary } from "cloudinary";
+import { AuthedRequest } from "../types/express";
 import {
   GenerateContentConfig,
   HarmBlockThreshold,
@@ -26,7 +27,7 @@ const loadImages = (path: string, mimeType: string) => {
 export const createProject = async (req: Request, res: Response) => {
   console.log(">>> 4. createProject() STARTED");
   let tempProjectId: string;
-  const { userId } = req.auth();
+  const { userId } = (req as AuthedRequest).auth();
   let isCreditDeducted = false;
 
   const {
@@ -38,7 +39,7 @@ export const createProject = async (req: Request, res: Response) => {
     targetLength = 5,
   } = req.body;
 
-  const images: any = req.files;
+  const images: any = (req as AuthedRequest).files;
 
   if (images.length < 2 || !productName) {
     return res.status(400).json({ message: "Please upload at least 2 images" });
@@ -249,7 +250,7 @@ export const createProject = async (req: Request, res: Response) => {
 }; // <-- this closes createProject
 
 // export const createVideo = async (req: Request, res: Response) => {
-//   const { userId } = req.auth();
+//   const { userId } = (req as AuthedRequest).auth();
 //   let isCreditDeducted = false;
 //   try {
 //     console.log("\n========== VIDEO GENERATION START ==========");
@@ -526,7 +527,7 @@ export const createProject = async (req: Request, res: Response) => {
 // };
 
 export const createVideo = async (req: Request, res: Response) => {
-  const { userId } = req.auth();
+  const { userId } = (req as AuthedRequest).auth();
   let isCreditDeducted = false;
   let tempProjectId: string | undefined;
   try {
@@ -628,7 +629,7 @@ export const getAllPublishedProjects = async (req: Request, res: Response) => {
 
 export const deleteProject = async (req: Request, res: Response) => {
   try {
-    const { userId } = req.auth();
+    const { userId } = (req as AuthedRequest).auth();
     const { projectId } = req.params as { projectId: string };
 
     const project = await prisma.project.findUnique({
