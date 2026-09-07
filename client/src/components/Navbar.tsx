@@ -59,17 +59,17 @@ export default function Navbar() {
       viewport={{ once: true }}
       transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
     >
-      <div className="max-w-6xl mx-auto flex items-center justify-between bg-black/50 backdrop-blur-md border border-white/4 rounded-2xl p-3">
+      <div className="max-w-6xl mx-auto flex items-center justify-between bg-chrome backdrop-blur-md border border-line rounded-2xl p-3">
         <Link to="/" onClick={() => scrollTo(0, 0)}>
           <img src={assets.logo} alt="logo" className="h-8" />
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted">
           {navLinks.map((link) => (
             <Link
               to={link.href}
               key={link.name}
-              className="hover:text-white transition"
+              className="hover:text-foreground transition"
             >
               {link.name}
             </Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-3">
             <button
               onClick={() => openSignIn()}
-              className="text-sm font-medium text-gray-300 hover:text-white transition max-sm:hidden"
+              className="text-sm font-medium text-muted hover:text-foreground transition max-sm:hidden"
             >
               Sign in
             </button>
@@ -130,7 +130,7 @@ export default function Navbar() {
         )}
       </div>
       <div
-        className={`flex flex-col items-center justify-center gap-6 text-lg font-medium fixed inset-0 bg-black/40 backdrop-blur-md z-50 transition-all duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`flex flex-col items-center justify-center gap-6 text-lg font-medium fixed inset-0 bg-popover backdrop-blur-md z-50 transition-all duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
         {navLinks.map((link) => (
           <a key={link.name} href={link.href} onClick={() => setIsOpen(false)}>
@@ -143,7 +143,7 @@ export default function Navbar() {
             setIsOpen(false);
             openSignIn();
           }}
-          className="font-medium text-gray-300 hover:text-white transition"
+          className="font-medium text-muted hover:text-foreground transition"
         >
           Sign in
         </button>
@@ -158,7 +158,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setIsOpen(false)}
-          className="rounded-md bg-white p-2 text-gray-800 ring-white active:ring-2"
+          className="rounded-md bg-foreground p-2 text-background ring-line-strong active:ring-2"
         >
           <XIcon />
         </button>

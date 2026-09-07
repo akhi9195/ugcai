@@ -22,7 +22,7 @@ const UploadZone = ({ label, file, onClear, onChange }: UploadZoneProps) => {
               <button
                 type="button"
                 onClick={onClear}
-                className="p-2 rounded-full bg-white/10 hover:bg-red-500/20 text-white hover:text-danger transition-colors"
+                className="p-2 rounded-full bg-white/10 hover:bg-danger/20 text-white hover:text-danger transition-colors"
               >
                 <XIcon className="w-6 h-6" />
               </button>

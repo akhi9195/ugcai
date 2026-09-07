@@ -64,8 +64,8 @@ export default function Pricing() {
 //             }}
 //             className={`relative p-6 rounded-xl border backdrop-blur ${
 //               plan.popular
-//                 ? "border-primary-500/50 bg-indigo-900/30"
-//                 : "border-white/8 bg-indigo-950/30"
+//                 ? "border-primary-500/50 bg-primary-900/30"
+//                 : "border-white/8 bg-primary-950/30"
 //             }`}
 //           >
 //             {plan.popular && (

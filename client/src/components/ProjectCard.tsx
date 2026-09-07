@@ -210,7 +210,7 @@ const ProjectCard = ({
                 )}
                 <button
                   onClick={() => handleDelete(gen.id)}
-                  className="w-full flex gap-2 items-center px-4 py-2 hover:bg-red-950/10 text-danger cursor-pointer"
+                  className="w-full flex gap-2 items-center px-4 py-2 hover:bg-danger/10 text-danger cursor-pointer"
                 >
                   <Trash2Icon size={14} /> Delete
                 </button>

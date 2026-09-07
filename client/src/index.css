@@ -1,67 +1,163 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import "tailwindcss";
 
 * {
-    font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 @layer base {
-    body {
-        @apply bg-gray-950 text-white antialiased;
-    }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 
-    button {
-        @apply cursor-pointer;
-    }
+  button {
+    @apply cursor-pointer;
+  }
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(0%);
-    }
+  0% {
+    transform: translateX(0%);
+  }
 
-    100% {
-        transform: translateX(-50%);
-    }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
-    display: inline-flex;
-    animation: marquee 16s linear infinite;
+  display: inline-flex;
+  animation: marquee 16s linear infinite;
 }
 
 @keyframes float {
-    0% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
+  }
 
-    50% {
-        transform: translateY(-5px);
-    }
+  50% {
+    transform: translateY(-5px);
+  }
 
-    100% {
-        transform: translateY(0);
-    }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .animate-float {
-    animation: float 5s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
-@theme {
+/* @theme {
     --color-primary: #8b5cf6;
     --color-primary-hover: #7c3aed;
     --color-secondary: #ec4899;
     --color-dark-bg: #0f172a;
     --color-dark-card: #1e293b;
+} */
+
+/*
+  ============================================================
+  THEME TOKENS
+  ============================================================
+  Default palette below = DARK (Kling-style) 
+*/
+@theme {
+  --color-primary-200: #c9ffba;
+  --color-primary-300: #9cff82;
+  --color-primary-400: #74ff52; /* Kling core green */
+  --color-primary-500: #4bdc2c;
+  --color-primary-600: #34b81c;
+
+  --color-accent-200: #c9ffba;
+  --color-accent-300: #9cff82;
+  --color-accent-400: #74ff52;
+  --color-accent-500: #4bdc2c;
+  --color-accent-600: #34b81c;
+  --color-accent-700: #279415;
+  --color-accent-800: #1b6d0f;
+  --color-accent-900: #0f3f08;
+
+  --color-glow-secondary-700: #a21caf; /* decorative, currently unused */
+
+  --color-success: #22c55e;
+  --color-danger: #f87171;
+  --color-warning: #ca8a04;
+
+  --color-background: #0a0a0a;
+  --color-foreground: #ffffff;
+  --color-muted: #a3a9b1;
+  --color-subtle: #787f88;
+
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-surface-hover: rgba(255, 255, 255, 0.08);
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.16);
+
+  --color-popover: rgba(10, 10, 10, 0.7);
+  --color-popover-hover: rgba(255, 255, 255, 0.08);
+
+  --color-btn-primary: #74ff52;
+  --color-btn-primary-hover: #9cff82;
+  --color-btn-primary-foreground: #0a0a0a;
+
+  --color-btn-secondary: #1e2024;
+  --color-btn-secondary-hover: #2a2c31;
+  --color-btn-secondary-foreground: #ffffff;
+  --color-btn-secondary-line: #2a2c31;
+}
+
+[data-theme="light"] {
+  --color-primary-200: #d6d2ff;
+  --color-primary-300: #a89fff;
+  --color-primary-400: #2c22fa; /* Runway promoBlue */
+  --color-primary-500: #241bd6;
+  --color-primary-600: #1c15ad;
+
+  --color-accent-200: #d6d2ff;
+  --color-accent-300: #a89fff;
+  --color-accent-400: #2c22fa;
+  --color-accent-500: #241bd6;
+  --color-accent-600: #1c15ad;
+  --color-accent-700: #150f85;
+  --color-accent-800: #0e0a5c;
+  --color-accent-900: #08052e;
+
+  --color-glow-secondary-700: #a21caf;
+
+  --color-success: #22c55e;
+  --color-danger: #f87171;
+  --color-warning: #ca8a04;
+
+  --color-background: #ffffff;
+  --color-foreground: #0c0c0c;
+  --color-muted: #666e7a;
+  --color-subtle: #8a919c;
+
+  --color-surface: rgba(12, 12, 12, 0.035);
+  --color-surface-hover: rgba(12, 12, 12, 0.07);
+  --color-line: rgba(12, 12, 12, 0.09);
+  --color-line-strong: rgba(12, 12, 12, 0.18);
+
+  --color-popover: rgba(255, 255, 255, 0.82);
+  --color-popover-hover: rgba(12, 12, 12, 0.06);
+
+  --color-btn-primary: #0c0c0c;
+  --color-btn-primary-hover: #2e2e2e;
+  --color-btn-primary-foreground: #ffffff;
+
+  --color-btn-secondary: #f1f1f1;
+  --color-btn-secondary-hover: #e5e5e5;
+  --color-btn-secondary-foreground: #0c0c0c;
+  --color-btn-secondary-line: #e4e5e6;
 }
 
 @layer utilities {
-    .glass-panel {
-        @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
-    }
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-lg border border-btn-secondary-line shadow-xl;
+  }
 
-    .btn-secondary {
-        @apply px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold backdrop-blur-sm border border-white/10 transition-all duration-300;
-    }
+  .btn-secondary {
+    @apply px-6 py-3 rounded-xl bg-btn-secondary hover:bg-btn-secondary-hover text-btn-secondary-foreground font-semibold backdrop-blur-sm border border-btn-secondary-line transition-all duration-300;
+  }
 }

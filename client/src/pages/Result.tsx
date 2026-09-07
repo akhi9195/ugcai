@@ -101,10 +101,10 @@ function Result() {
 
   return loading ? (
     <div className="h-screen w-full flex items-center justify-center">
-      <Loader2Icon className="animate-spin text-indigo size-9" />
+      <Loader2Icon className="animate-spin text-primary-400 size-9" />
     </div>
   ) : (
-    <div className="min-h-screen text-white p-6 md:p-12 mt-20">
+    <div className="min-h-screen text-foreground  p-6 md:p-12 mt-20">
       <div className="max-w-6xl mx-auto">
         <header className="flex justify-between items-center mb-8">
           <h1 className="text-2xl md:text-3xl font-medium">
@@ -178,7 +178,7 @@ function Result() {
                 <VideoIcon className="size-24" />
               </div>
               <h3 className="text-xl font-semibold mb-2"> Video Magic</h3>
-              <p className="text-gray-400 text-sm mb-6">
+              <p className="text-muted text-sm mb-6">
                 Turn this static image into a dynamic video for social media.
               </p>
               {!project.generatedVideo ? (
