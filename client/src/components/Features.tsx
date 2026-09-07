@@ -37,18 +37,18 @@ export default function Features() {
                   card.classList.add(
                     "transition",
                     "duration-300",
-                    "hover:border-white/15",
+                    "hover:border-line-strong",
                     "hover:-translate-y-1",
                   );
                 }
               }}
-              className="rounded-2xl p-6 bg-white/3 border border-white/6"
+              className="rounded-2xl p-6 bg-surface border border-line"
             >
               <div className="w-12 h-12 rounded-lg bg-accent-900/20 flex items-center justify-center mb-4">
                 {feature.icon}
               </div>
               <h3 className="text-lg font-semibold mb-2">{feature.title}</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">
+              <p className="text-muted text-sm leading-relaxed">
                 {feature.desc}
               </p>
             </motion.div>

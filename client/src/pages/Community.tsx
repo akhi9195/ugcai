@@ -28,11 +28,11 @@ function Community() {
       <Loader2Icon className="size-7 animate-spin text-primary-400" />
     </div>
   ) : (
-    <div className="min-h-screen text-white p-6 md:p-12 my-28">
+    <div className="min-h-screen text-foreground p-6 md:p-12 my-28">
       <div className="max-w-6xl mx-auto">
         <header className="mb-12">
           <h1 className="text-3xl md:text-4xl font-semibold mb-4">Community</h1>
-          <p className="text-gray-400">
+          <p className="text-muted">
             See what others are creating with UGC.ai
           </p>
         </header>

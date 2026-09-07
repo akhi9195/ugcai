@@ -6,7 +6,7 @@ const UploadZone = ({ label, file, onClear, onChange }: UploadZoneProps) => {
     <div className="relative group">
       <div
         className={`relative h-74 rounded-2xl border-2 border-dashed transition-all duration-300 flex flex-col items-center justify-center p-6 
-          ${file ? "border-accent-600/50 bg-accent-500/5" : "border-white/10 hover:border-accent-500/30 hover:bg-white/5"} `}
+          ${file ? "border-accent-600/50 bg-accent-500/5" : "border-line hover:border-accent-500/30 hover:bg-surface"} `}
       >
         {file ? (
           <>
@@ -22,23 +22,23 @@ const UploadZone = ({ label, file, onClear, onChange }: UploadZoneProps) => {
               <button
                 type="button"
                 onClick={onClear}
-                className="p-2 rounded-full bg-white/10 hover:bg-danger/20 text-white hover:text-danger transition-colors"
+                className="p-2 rounded-full bg-surface-hover hover:bg-danger/20 text-foreground hover:text-danger transition-colors"
               >
                 <XIcon className="w-6 h-6" />
               </button>
             </div>
 
-            <div className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-md p-3 rounded-lg border border-white/10">
+            <div className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-md p-3 rounded-lg border border-line">
               <p className="text-sm font-medium truncate"> {file.name}</p>
             </div>
           </>
         ) : (
           <>
-            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-              <UploadIcon className="w-8 h-8 text-gray-400 group-hover:text-accent-400 transition-colors" />
+            <div className="w-16 h-16 rounded-full bg-surface flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <UploadIcon className="w-8 h-8 text-muted group-hover:text-accent-400 transition-colors" />
             </div>
             <h3 className="text-lg font-semibold mb-2">{label}</h3>
-            <p className="text-sm text-gray-400 text-center max-w-[200px]">
+            <p className="text-sm text-muted text-center max-w-[200px]">
               Drag & drop or click to upload
             </p>
 

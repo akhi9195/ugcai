@@ -85,7 +85,7 @@ const ProjectCard = ({
   };
   return (
     <div key={gen.id} className="mb-4 break-inside-avoid">
-      <div className="relative bg-white/5 border border-white/10 rounded-xl overflow-hidden hover:border-white/20 transition group">
+      <div className="relative bg-surface border border-line rounded-xl overflow-hidden hover:border-line-strong transition group">
         {/* Preview */}
         <div
           className={`${gen?.aspectRatio === "9:16" ? "aspect-9/16" : "aspect-video"} relative overflow-hidden`}
@@ -170,14 +170,14 @@ const ProjectCard = ({
             </div>
             <div className="flex flex-col items-end w-32 text-sm">
               <ul
-                className={`text-xs ${menuOpen ? "block" : "hidden"} verflow-hidden right-0 peer-focus:block hover:block w-40 bg-black/50 
-                backdrop-blur text-white border border-gray-500/50 rounded-lg shadow-md mt-2 py-1 z-10`}
+                className={`text-xs ${menuOpen ? "block" : "hidden"} verflow-hidden right-0 peer-focus:block hover:block w-40 bg-popover 
+                backdrop-blur text-foreground border border-line-strong rounded-lg shadow-md mt-2 py-1 z-10`}
               >
                 {gen.generatedImage && (
                   <a
                     href="#"
                     download
-                    className="flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer"
+                    className="flex gap-2 items-center px-4 py-2 hover:bg-popover-hover cursor-pointer"
                   >
                     <ImageIcon size={14} />
                     Download Image
@@ -187,7 +187,7 @@ const ProjectCard = ({
                   <a
                     href="#"
                     download
-                    className="flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer"
+                    className="flex gap-2 items-center px-4 py-2 hover:bg-popover-hover cursor-pointer"
                   >
                     <PlaySquareIcon size={14} />
                     Download Video
@@ -203,7 +203,7 @@ const ProjectCard = ({
                         text: gen.productDescription,
                       })
                     }
-                    className="w-full flex gap-2 items-center px-4 py-2 hover:bg-black/10 cursor-pointer"
+                    className="w-full flex gap-2 items-center px-4 py-2 hover:bg-popover-hover cursor-pointer"
                   >
                     <Share2Icon size={14} /> Share
                   </button>
@@ -225,11 +225,11 @@ const ProjectCard = ({
           <div className="flex items-start justify-between gap-4">
             <div className="flex-1">
               <h3 className="font-medium text-lg mb-1">{gen.productName}</h3>
-              <p className="text-sm text-gray-400">
+              <p className="text-sm text-muted">
                 Created: {new Date(gen.createdAt).toLocaleString()}
               </p>
               {gen.updatedAt && (
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-subtle mt-1">
                   Updated: {new Date(gen.updatedAt).toLocaleString()}
                 </p>
               )}
@@ -237,7 +237,7 @@ const ProjectCard = ({
 
             <div className="text-right">
               <div className="mt-2 flex flex-col items-end gap-1">
-                <span className="text-xs px-2 py-1 bg-white/5 rounded-full">
+                <span className="text-xs px-2 py-1 bg-surface rounded-full">
                   Aspect:{gen.aspectRatio}
                 </span>
               </div>
@@ -247,8 +247,8 @@ const ProjectCard = ({
           {/* product description */}
           {gen.productDescription && (
             <div className="mt-3">
-              <p className="text-xs text-gray-400 mb-1">Description</p>
-              <div className="text-sm text-gray-300 bg-white/3 p-2 rounded-md wrap-break-word">
+              <p className="text-xs text-muted mb-1">Description</p>
+              <div className="text-sm text-muted bg-surface p-2 rounded-md wrap-break-word">
                 {gen.productDescription}
               </div>
             </div>

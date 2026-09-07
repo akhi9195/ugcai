@@ -38,13 +38,13 @@ export default function Faq() {
                   card.classList.add("transition", "duration-300");
                 }
               }}
-              className="group bg-white/6 rounded-xl select-none"
+              className="group bg-surface rounded-xl select-none"
             >
               <summary className="flex items-center justify-between p-4 cursor-pointer">
                 <h4 className="font-medium">{faq.question}</h4>
-                <ChevronDownIcon className="w-5 h-5 text-gray-300 group-open:rotate-180 transition-transform" />
+                <ChevronDownIcon className="w-5 h-5 text-muted group-open:rotate-180 transition-transform" />
               </summary>
-              <p className="p-4 pt-0 text-sm text-gray-300 leading-relaxed">
+              <p className="p-4 pt-0 text-sm text-muted leading-relaxed">
                 {faq.answer}
               </p>
             </motion.details>

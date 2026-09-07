@@ -24,7 +24,7 @@ export default function CTA() {
               Ready to Transform Your Content?
             </motion.h2>
             <motion.p
-              className="max-sm:text-sm text-slate-400 mb-10 max-w-xl mx-auto"
+              className="max-sm:text-sm text-muted mb-10 max-w-xl mx-auto"
               initial={{ y: 60, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}

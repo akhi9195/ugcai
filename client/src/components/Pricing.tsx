@@ -5,7 +5,7 @@ import { PricingTable } from "@clerk/react";
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20 bg-white/3 border-t border-white/6">
+    <section id="pricing" className="py-20 bg-surface border-t border-line">
       <div className="max-w-6xl mx-auto px-4">
         <Title
           title="Pricing"
@@ -18,12 +18,13 @@ export default function Pricing() {
             appearance={{
               variables: {
                 colorBackground: "none",
-                colorPrimary: "#3949AB",
+                colorPrimary: "var(--color-accent-400)",
+                colorPrimaryForeground: "var(--color-btn-primary-foreground)",
               },
               elements: {
-                pricingTableCardBody: "bg-white/6",
-                pricingTableCardHeader: "bg-white/10",
-                switchThumb: "bg-white",
+                pricingTableCardBody: "bg-surface",
+                pricingTableCardHeader: "bg-surface-hover",
+                switchThumb: "bg-foreground",
                 // colorPrimary: "#0f766e",
                 // pricingTableCardFooter: "bg-white/6",
                 // pricingTableCardFooterButton:

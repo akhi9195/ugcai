@@ -28,7 +28,7 @@ export default function Hero() {
             <div className="text-left">
               <motion.a
                 href="https://prebuiltui.com/tailwind-templates?ref=pixel-forge"
-                className="inline-flex items-center gap-3 pl-3 pr-4 py-1.5 rounded-full bg-white/10 mb-6 justify-start"
+                className="inline-flex items-center gap-3 pl-3 pr-4 py-1.5 rounded-full bg-surface-hover mb-6 justify-start"
                 initial={{ y: 60, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -51,7 +51,7 @@ export default function Hero() {
                     />
                   ))}
                 </div>
-                <span className="text-xs text-gray-200/90">
+                <span className="text-xs text-muted">
                   Trusted by 10,000+ creators
                 </span>
               </motion.a>
@@ -76,7 +76,7 @@ export default function Hero() {
               </motion.h1>
 
               <motion.p
-                className="text-gray-300 max-w-lg mb-8"
+                className="text-muted max-w-lg mb-8"
                 initial={{ y: 60, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -120,7 +120,7 @@ export default function Hero() {
               </motion.div>
 
               <motion.div
-                className="flex sm:inline-flex overflow-hidden items-center max-sm:justify-center text-sm text-gray-200 bg-white/10 rounded"
+                className="flex sm:inline-flex overflow-hidden items-center max-sm:justify-center text-sm text-muted bg-surface-hover rounded"
                 initial={{ y: 60, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -132,23 +132,23 @@ export default function Hero() {
                   delay: 0.1,
                 }}
               >
-                <div className="flex items-center gap-2 p-2 px-3 sm:px-6.5 hover:bg-white/3 transition-colors">
-                  <ZapIcon className="size-4 text-sky-500" />
+                <div className="flex items-center gap-2 p-2 px-3 sm:px-6.5 hover:bg-surface transition-colors">
+                  <ZapIcon className="size-4 text-accent-400" />
                   <div>
                     <div>Seconds to create</div>
-                    <div className="text-xs text-gray-400">
+                    <div className="text-xs text-muted">
                       Optimized social formats
                     </div>
                   </div>
                 </div>
 
-                <div className="hidden sm:block h-6 w-px bg-white/6" />
+                <div className="hidden sm:block h-6 w-px bg-line" />
 
-                <div className="flex items-center gap-2 p-2 px-3 sm:px-6.5 hover:bg-white/3 transition-colors">
-                  <CheckIcon className="size-4 text-cyan-500" />
+                <div className="flex items-center gap-2 p-2 px-3 sm:px-6.5 hover:bg-surface transition-colors">
+                  <CheckIcon className="size-4 text-accent-400" />
                   <div>
                     <div>Commercial rights</div>
-                    <div className="text-xs text-gray-400">
+                    <div className="text-xs text-muted">
                       Use anywhere, no fuss
                     </div>
                   </div>
@@ -170,7 +170,7 @@ export default function Hero() {
                 delay: 0.5,
               }}
             >
-              <motion.div className="rounded-3xl overflow-hidden border border-white/6 shadow-2xl bg-linear-to-b from-black/50 to-transparent">
+              <motion.div className="rounded-3xl overflow-hidden border border-line shadow-2xl bg-linear-to-b from-black/50 to-transparent">
                 <div className="relative aspect-16/10 bg-gray-900">
                   <img
                     src={mainImageUrl}
@@ -183,7 +183,7 @@ export default function Hero() {
                   </div>
 
                   <div className="absolute right-4 bottom-4">
-                    <button className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white/6 backdrop-blur-sm hover:bg-white/10 transition focus:outline-none">
+                    <button className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-surface-hover backdrop-blur-sm hover:bg-line-strong transition focus:outline-none">
                       <PlayIcon className="size-4" />
                       <span className="text-xs">Preview</span>
                     </button>
@@ -205,7 +205,7 @@ export default function Hero() {
                       mass: 1,
                       delay: 0.1 + i * 0.1,
                     }}
-                    className="w-14 h-10 rounded-lg overflow-hidden border border-white/6"
+                    className="w-14 h-10 rounded-lg overflow-hidden border border-line"
                   >
                     <img
                       src={src}
@@ -215,7 +215,7 @@ export default function Hero() {
                   </motion.div>
                 ))}
                 <motion.div
-                  className="text-sm text-gray-400 ml-2 flex items-center gap-2"
+                  className="text-sm text-muted ml-2 flex items-center gap-2"
                   initial={{ y: 60, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true }}
@@ -242,7 +242,7 @@ export default function Hero() {
 
       {/* LOGO MARQUEE */}
       <motion.section
-        className="border-y border-white/6 bg-white/1 max-md:mt-10"
+        className="border-y border-line bg-surface max-md:mt-10"
         initial={{ y: 60, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
@@ -254,7 +254,7 @@ export default function Hero() {
               {trustedLogosText.concat(trustedLogosText).map((logo, i) => (
                 <span
                   key={i}
-                  className="mx-6 text-sm md:text-base font-semibold text-gray-400 hover:text-gray-300 tracking-wide transition-colors"
+                  className="mx-6 text-sm md:text-base font-semibold text-subtle hover:text-muted tracking-wide transition-colors"
                 >
                   {logo}
                 </span>
