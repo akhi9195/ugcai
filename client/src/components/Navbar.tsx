@@ -3,7 +3,9 @@ import {
   FolderEditIcon,
   GalleryHorizontalEnd,
   MenuIcon,
+  MoonIcon,
   SparkleIcon,
+  SunIcon,
   XIcon,
 } from "lucide-react";
 import { GhostButton, PrimaryButton } from "./Buttons";
@@ -14,10 +16,12 @@ import { assets } from "../assets/assets";
 import { useClerk, useUser, UserButton, useAuth } from "@clerk/react";
 import toast from "react-hot-toast";
 import api from "../configs/axios";
+import { useTheme } from "../context/ThemeContext";
 export default function Navbar() {
   const navigate = useNavigate();
   const { user } = useUser();
   const { openSignIn, openSignUp } = useClerk();
+  const { theme, toggleTheme } = useTheme();
 
   const [isOpen, setIsOpen] = useState(false);
   const [credits, setCredits] = useState(0);
@@ -60,10 +64,28 @@ export default function Navbar() {
       transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between bg-chrome backdrop-blur-md border border-line rounded-2xl p-3">
-        <Link to="/" onClick={() => scrollTo(0, 0)}>
-          <img src={assets.logo} alt="logo" className="h-8" />
+        <Link
+          to="/"
+          onClick={() => scrollTo(0, 0)}
+          className="flex items-center gap-2"
+        >
+          <img src={assets.logoDark} alt="" className="h-16 w-16 logo-dark" />
+          <img src={assets.logoLight} alt="" className="h-16 w-16 logo-light" />
+          <span className="font-archivo font-bold text-lg text-foreground">
+            loopMotion
+          </span>
         </Link>
-
+        <button
+          onClick={toggleTheme}
+          aria-label="Toggle theme"
+          className="p-2 rounded-full hover:bg-surface-hover transition"
+        >
+          {theme === "dark" ? (
+            <SunIcon className="size-5" />
+          ) : (
+            <MoonIcon className="size-5" />
+          )}
+        </button>
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted">
           {navLinks.map((link) => (
             <Link

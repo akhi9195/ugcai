@@ -1,8 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 * {
-  font-family: "Outfit", sans-serif;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Archivo", sans-serif;
 }
 
 @layer base {
@@ -47,6 +56,19 @@
 .animate-float {
   animation: float 5s ease-in-out infinite;
 }
+.logo-dark {
+  display: block;
+}
+.logo-light {
+  display: none;
+}
+
+[data-theme="light"] .logo-dark {
+  display: none;
+}
+[data-theme="light"] .logo-light {
+  display: block;
+}
 
 /* @theme {
     --color-primary: #8b5cf6;
@@ -86,7 +108,7 @@
 
   --color-background: #0a0a0a;
   --color-foreground: #ffffff;
-  --color-muted: #a3a9b1;
+  --color-muted: ##a3a9b1;
   --color-subtle: #787f88;
 
   --color-surface: rgba(255, 255, 255, 0.04);
@@ -108,20 +130,20 @@
 }
 
 [data-theme="light"] {
-  --color-primary-200: #d6d2ff;
-  --color-primary-300: #a89fff;
-  --color-primary-400: #2c22fa; /* Runway promoBlue */
-  --color-primary-500: #241bd6;
-  --color-primary-600: #1c15ad;
+  --color-primary-200: #d7f3f4;
+  --color-primary-300: #a0edee;
+  --color-primary-400: #039396;
+  --color-primary-500: #027678;
+  --color-primary-600: #02585a;
 
-  --color-accent-200: #d6d2ff;
-  --color-accent-300: #a89fff;
-  --color-accent-400: #2c22fa;
-  --color-accent-500: #241bd6;
-  --color-accent-600: #1c15ad;
-  --color-accent-700: #150f85;
-  --color-accent-800: #0e0a5c;
-  --color-accent-900: #08052e;
+  --color-accent-200: #d7f3f4;
+  --color-accent-300: #a0edee;
+  --color-accent-400: #039396;
+  --color-accent-500: #027678;
+  --color-accent-600: #02585a;
+  --color-accent-700: #023f40;
+  --color-accent-800: #022829;
+  --color-accent-900: #021415;
 
   --color-glow-secondary-700: #a21caf;
 
@@ -131,7 +153,8 @@
 
   --color-background: #ffffff;
   --color-foreground: #0c0c0c;
-  --color-muted: #666e7a;
+  --color-muted: #525559;
+  /* #62656a */
   --color-subtle: #8a919c;
 
   --color-surface: rgba(12, 12, 12, 0.035);
